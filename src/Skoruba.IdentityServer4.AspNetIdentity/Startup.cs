@@ -39,7 +39,7 @@ namespace Skoruba.IdentityServer4.AspNetIdentity
             var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
 
             services.AddDbContext<AdminDbContext>(options =>
-                options.UseSqlServer(connectionString));
+                options.UseMySql(connectionString));
 
             services.AddIdentity<UserIdentity, UserIdentityRole>()
                 .AddEntityFrameworkStores<AdminDbContext>()
@@ -65,14 +65,14 @@ namespace Skoruba.IdentityServer4.AspNetIdentity
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = b =>
-                        b.UseSqlServer(connectionString,
+                        b.UseMySql(connectionString,
                             sql => sql.MigrationsAssembly(migrationsAssembly));
                 })
                 // this adds the operational data from DB (codes, tokens, consents)
                 .AddOperationalStore(options =>
                 {
                     options.ConfigureDbContext = b =>
-                        b.UseSqlServer(connectionString,
+                        b.UseMySql(connectionString,
                             sql => sql.MigrationsAssembly(migrationsAssembly));
 
                     // this enables automatic token cleanup. this is optional.

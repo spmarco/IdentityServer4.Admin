@@ -3,12 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <UserSecretsId>9c91d295-54c5-4d09-9bd6-fa56fb74011b</UserSecretsId>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="2.1.0" />
     <PackageReference Include="IdentityServer4.EntityFramework" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.1" />
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>

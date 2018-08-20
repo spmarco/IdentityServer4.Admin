@@ -38,7 +38,7 @@ gulp.task('scripts', function () {
 gulp.task('styles', ['sass', 'sass:min'], function () {
 	gulp
 		.src([
-			"./node_modules/bootstrap/dist/css/bootstrap.css",
+			"./Styles/bootstrap.css",
 			"./node_modules/toastr/build/toastr.css",
 			"./node_modules/open-iconic/font/css/open-iconic-bootstrap.css",
 			"./node_modules/font-awesome/css/font-awesome.css",

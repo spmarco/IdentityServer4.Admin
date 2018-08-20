@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using IdentityServer4.EntityFramework.Entities;
 using IdentityServer4.EntityFramework.Extensions;
 using IdentityServer4.EntityFramework.Interfaces;
@@ -11,7 +12,7 @@ using Skoruba.IdentityServer4.Admin.EntityFramework.Entities.Identity;
 
 namespace Skoruba.IdentityServer4.Admin.EntityFramework.DbContexts
 {
-    public class AdminDbContext : IdentityDbContext<UserIdentity, UserIdentityRole, int, UserIdentityUserClaim, UserIdentityUserRole, UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken>,
+    public class AdminDbContext : IdentityDbContext<UserIdentity, UserIdentityRole, Guid, UserIdentityUserClaim, UserIdentityUserRole, UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken>,
         IConfigurationDbContext, IPersistedGrantDbContext
     {
         private readonly ConfigurationStoreOptions _storeOptions;
@@ -68,6 +69,7 @@ namespace Skoruba.IdentityServer4.Admin.EntityFramework.DbContexts
         {
             return base.SaveChangesAsync();
         }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

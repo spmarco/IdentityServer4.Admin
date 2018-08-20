@@ -9,7 +9,7 @@
 	<link rel="icon" type="image/png" href="/images/skoruba-ico.png" />
 	<title>@ViewData["Title"] - @Localizer["PageTitle"]</title>
 
-	<environment include="Development">
+    <environment include="Development">
 		<link href="~/dist/css/bundle.min.css" asp-append-version="true" rel="stylesheet" />
 		<link href="~/dist/css/web.css" asp-append-version="true" rel="stylesheet" />
 	</environment>
@@ -17,18 +17,18 @@
 		<link href="~/dist/css/bundle.min.css" asp-append-version="true" rel="stylesheet" />
 		<link href="~/dist/css/web.min.css" asp-append-version="true" rel="stylesheet" />
 	</environment>
+    
 
 	@RenderSection("styles", required: false)
 </head>
 <body>
-
-	<div class="menu d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+	<div class="navbar-dark bg-primary menu d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 box-shadow">
 		<!--Site name -->
 		<h3 class="menu-logo my-0 mr-md-auto font-weight-normal"><a class="logo" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["PageTitle"]</a></h3>
 
 		<!--Menu item -->
 		<div class="menu-item my-2 my-md-0 mr-md-3 dropdown">
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
 				@Localizer["TitleConfiguration"]
 			</button>
 			<div class="dropdown-menu">
@@ -43,7 +43,7 @@
 
 		<!--Menu item -->
 		<div class="menu-item my-2 my-md-0 mr-md-3 dropdown">
-			<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
 				@Localizer["TitleUsermanagement"]
 			</button>
 			<div class="dropdown-menu">
@@ -53,7 +53,7 @@
 		</div>
 
 		<!--Menu item -->
-		<a class="menu-item btn btn-primary mr-md-3" asp-area="" asp-controller="Log" asp-action="ErrorsLog">@Localizer["TitleLogs"]</a>
+		<a class="menu-item btn btn-secondary mr-md-3" asp-area="" asp-controller="Log" asp-action="ErrorsLog">@Localizer["TitleLogs"]</a>
 
 		<!--Menu item -->
 		@if (User.Identity.IsAuthenticated)
@@ -62,7 +62,7 @@
 		}
 
 		<!--Menu button - show in < MD -->
-		<a class="my-2 btn btn-outline-primary menu-button" href="#">
+		<a class="my-2 btn btn-outline-secondary menu-button" href="#">
 			<span class="oi oi-menu" title="menu" aria-hidden="true"></span> @Localizer["MenuButton"]
 		</a>
 	</div>

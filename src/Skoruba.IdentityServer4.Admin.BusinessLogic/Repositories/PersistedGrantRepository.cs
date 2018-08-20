@@ -28,7 +28,7 @@ namespace Skoruba.IdentityServer4.Admin.BusinessLogic.Repositories
             var pagedList = new PagedList<PersistedGrantDataView>();
 
             var persistedGrantByUsers = (from pe in _dbContext.PersistedGrants
-                                         join us in _dbContext.Users on Convert.ToInt32(pe.SubjectId) equals us.Id into per
+                                         join us in _dbContext.Users on Guid.Parse(pe.SubjectId) equals us.Id into per
                                          from us in per.DefaultIfEmpty()
                                          select new PersistedGrantDataView
                                          {

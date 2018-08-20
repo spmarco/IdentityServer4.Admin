@@ -11,7 +11,7 @@ namespace Skoruba.IdentityServer4.Admin
     {
         private const string SeedArgs = "/seed";
 
-        public static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             var seed = args.Any(x => x == SeedArgs);
             if (seed) args = args.Except(new[] { SeedArgs }).ToArray();
@@ -20,10 +20,8 @@ namespace Skoruba.IdentityServer4.Admin
 
             // Uncomment this to seed upon startup, alternatively pass in `dotnet run /seed` to seed using CLI
             // await DbMigrationHelpers.EnsureSeedData(host);
-            if (seed)
-            {
-                await DbMigrationHelpers.EnsureSeedData(host);
-            }
+
+
 
             host.Run();
         }

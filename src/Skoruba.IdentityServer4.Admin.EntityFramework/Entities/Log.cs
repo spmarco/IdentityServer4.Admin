@@ -25,7 +25,6 @@ namespace Skoruba.IdentityServer4.Admin.EntityFramework.Entities
 
         public string LogEvent { get; set; }
 
-        [Column(TypeName = "xml")]
         public string Properties { get; set; }
 
         [NotMapped]
