@@ -25,6 +25,9 @@ using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.MSSqlServer;
 using Skoruba.IdentityServer4.Admin.BusinessLogic.Repositories;
+using Skoruba.IdentityServer4.Admin.BusinessLogic.Repositories.Dapper;
+using Skoruba.IdentityServer4.Admin.BusinessLogic.Repositories.Entity;
+using Skoruba.IdentityServer4.Admin.BusinessLogic.Repositories.Interface;
 using Skoruba.IdentityServer4.Admin.BusinessLogic.Resources;
 using Skoruba.IdentityServer4.Admin.Constants;
 using Skoruba.IdentityServer4.Admin.EntityFramework.Constants;
@@ -166,11 +169,15 @@ namespace Skoruba.IdentityServer4.Admin.Helpers
 
         public static void AddServices(this IServiceCollection services)
         {
+            //Dapper Repositories
+            services.AddTransient<IClientRepository, ClientDapperRepository>();
+            services.AddTransient<IApiResourceRepository, ApiResourceDapperRepository>();
+
             //Repositories
             services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IApiResourceRepository, ApiResourceRepository>();
             services.AddTransient<IIdentityResourceRepository, IdentityResourceRepository>();
             services.AddTransient<IIdentityRepository, IdentityRepository>();
-            services.AddTransient<IApiResourceRepository, ApiResourceRepository>();
             services.AddTransient<IPersistedGrantRepository, PersistedGrantRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
 

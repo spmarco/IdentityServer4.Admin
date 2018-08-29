@@ -52,7 +52,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
                .RuleFor(o => o.AlwaysIncludeUserClaimsInIdToken, f => f.Random.Bool())
                .RuleFor(o => o.Enabled, f => f.Random.Bool())
                .RuleFor(o => o.ProtocolType, f => f.PickRandom(ClientConsts.GetProtocolTypes().Select(x => x.Id)))
-               .RuleFor(o => o.ClientSecrets, f => generateSecrets ? ClientSecretFaker(0).Generate(f.Random.Number(10)) : new List<ClientSecret>()) //Client Secrets are managed with seperate method
+               .RuleFor(o => o.ClientSecrets, f => generateSecrets ? ClientSecretFaker(f.Random.Number(1000000)).Generate(f.Random.Number(10)) : new List<ClientSecret>()) //Client Secrets are managed with seperate method
                .RuleFor(o => o.RequireClientSecret, f => f.Random.Bool())
                .RuleFor(o => o.Description, f => f.Random.Words(f.Random.Number(1, 7)))
                .RuleFor(o => o.ClientUri, f => f.Internet.Url())
@@ -87,14 +87,15 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         public static Faker<ClientCorsOrigin> GetClientCorsOriginFaker()
         {
             var fakerClientCorsOrigin = new Faker<ClientCorsOrigin>()
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000))
                 .RuleFor(o => o.Origin, f => f.Internet.Url());
 
             return fakerClientCorsOrigin;
         }
 
-        public static Client GenerateRandomClient(int id, bool generateClaims = false, bool generateProperties = false, bool generateSecrets = false)
+        public static Client GenerateRandomClient(int? id = null, bool generateClaims = false, bool generateProperties = false, bool generateSecrets = false)
         {
-            var clientFaker = ClientFaker(id, generateClaims, generateProperties, generateSecrets);
+            var clientFaker = ClientFaker(id ?? new Random().Next(1, 1000000), generateClaims, generateProperties, generateSecrets);
 
             var clientTesting = clientFaker.Generate();
 
@@ -122,6 +123,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         public static Faker<ClientIdPRestriction> ClientIdPRescrictionFaker()
         {
             var fakerClientIdPRescriction = new Faker<ClientIdPRestriction>()
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000))
                 .RuleFor(o => o.Provider, f => f.PickRandom(GetIdentityProviders()));
             return fakerClientIdPRescriction;
         }
@@ -129,6 +131,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         public static Faker<ClientPostLogoutRedirectUri> ClientPostLogoutRedirectUriFaker()
         {
             var fakerClientPostLogoutRedirectUri = new Faker<ClientPostLogoutRedirectUri>()
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000))
                 .RuleFor(o => o.PostLogoutRedirectUri, f => f.Internet.Url());
             return fakerClientPostLogoutRedirectUri;
         }
@@ -136,6 +139,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         public static Faker<ClientRedirectUri> ClientRedirectUriFaker()
         {
             var fakerClientRedirectUri = new Faker<ClientRedirectUri>()
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000))
                 .RuleFor(o => o.RedirectUri, f => f.Internet.Url());
             return fakerClientRedirectUri;
         }
@@ -143,13 +147,15 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         public static Faker<ClientScope> ClientScopesFaker()
         {
             var fakerClientScopes = new Faker<ClientScope>()
-                .RuleFor(o => o.Scope, f => f.PickRandom(GetScopes()));
+                .RuleFor(o => o.Scope, f => f.PickRandom(GetScopes()))
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000));
             return fakerClientScopes;
         }
 
         public static Faker<ClientGrantType> ClientGrantTypesFaker()
         {
             var fakerClientGrantTypes = new Faker<ClientGrantType>()
+                .RuleFor(x => x.Id, f => f.Random.Number(10000000))
                 .RuleFor(o => o.GrantType, f => f.PickRandom(ClientConsts.GetGrantTypes()));
 
             return fakerClientGrantTypes;
@@ -162,27 +168,27 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
             return clientGrantType;
         }
 
-        public static ClientSecret GenerateRandomClientSecret(int id)
+        public static ClientSecret GenerateRandomClientSecret(int? id = null)
         {
-            var testClientSecret = ClientSecretFaker(id);
+            var testClientSecret = ClientSecretFaker(id ?? new Random().Next(1, 1000000));
 
             var clientSecretTesting = testClientSecret.Generate();
 
             return clientSecretTesting;
         }
 
-        public static ClientClaim GenerateRandomClientClaim(int id)
+        public static ClientClaim GenerateRandomClientClaim(int? id = null)
         {
-            var clientClaimFaker = ClientClaimFaker(id);
+            var clientClaimFaker = ClientClaimFaker(id ?? new Random().Next(1, 1000000));
 
             var clientClaimTesting = clientClaimFaker.Generate();
 
             return clientClaimTesting;
         }
 
-        public static ClientProperty GenerateRandomClientProperty(int id)
+        public static ClientProperty GenerateRandomClientProperty(int? id = null)
         {
-            var clientPropertyFaker = ClientPropertyFaker(id);
+            var clientPropertyFaker = ClientPropertyFaker(id ?? new Random().Next(1, 1000000));
 
             var clientPropertyTesting = clientPropertyFaker.Generate();
 

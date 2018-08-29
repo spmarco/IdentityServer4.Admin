@@ -31,9 +31,9 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
             return fakerIdentityClaim;
         }
 
-        public static IdentityResource GenerateRandomIdentityResource(int id)
+        public static IdentityResource GenerateRandomIdentityResource(int? id = null)
         {
-            var identityResource = GetIdentityResourceFaker(id).Generate();
+            var identityResource = GetIdentityResourceFaker(id ?? new Random().Next(1, 1000000)).Generate();
 
             return identityResource;
         }

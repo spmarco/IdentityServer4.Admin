@@ -1,0 +1,654 @@
+2018-08-28 11:22:28.619 -03:00 [ERR] Failed executing DbCommand (289ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = Int32), @p10='?' (DbType = Boolean), @p11='?' (Size = 2000), @p12='?' (Size = 200), @p13='?' (Size = 200), @p14='?' (Size = 200), @p15='?' (Size = 2000), @p16='?' (DbType = Int32), @p17='?' (Size = 1000), @p18='?' (DbType = Boolean), @p19='?' (DbType = Boolean), @p20='?' (DbType = Boolean), @p21='?' (Size = 2000), @p22='?' (DbType = Int32), @p23='?' (DbType = Boolean), @p24='?' (Size = 2000), @p25='?' (Size = 200), @p26='?' (Size = 200), @p27='?' (DbType = Int32), @p28='?' (DbType = Int32), @p29='?' (DbType = Boolean), @p30='?' (DbType = Boolean), @p31='?' (DbType = Boolean), @p32='?' (DbType = Int32), @p33='?' (DbType = Boolean)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Clients] ([AbsoluteRefreshTokenLifetime], [AccessTokenLifetime], [AccessTokenType], [AllowAccessTokensViaBrowser], [AllowOfflineAccess], [AllowPlainTextPkce], [AllowRememberConsent], [AlwaysIncludeUserClaimsInIdToken], [AlwaysSendClientClaims], [AuthorizationCodeLifetime], [BackChannelLogoutSessionRequired], [BackChannelLogoutUri], [ClientClaimsPrefix], [ClientId], [ClientName], [ClientUri], [ConsentLifetime], [Description], [EnableLocalLogin], [Enabled], [FrontChannelLogoutSessionRequired], [FrontChannelLogoutUri], [IdentityTokenLifetime], [IncludeJwtId], [LogoUri], [PairWiseSubjectSalt], [ProtocolType], [RefreshTokenExpiration], [RefreshTokenUsage], [RequireClientSecret], [RequireConsent], [RequirePkce], [SlidingRefreshTokenLifetime], [UpdateAccessTokenClaimsOnRefresh])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18, @p19, @p20, @p21, @p22, @p23, @p24, @p25, @p26, @p27, @p28, @p29, @p30, @p31, @p32, @p33);
+SELECT [Id]
+FROM [Clients]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();
+System.Data.SqlClient.SqlException (0x80131904): Não é possível inserir o valor NULL na coluna 'Id', tabela 'Usuarios.dbo.Clients'; a coluna não permite nulos. Falha em INSERT.
+A instrução foi finalizada.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+ClientConnectionId:640e7901-6f2b-4858-9c6f-2f5661a5a838
+Error Number:515,State:2,Class:16
+2018-08-28 11:22:29.112 -03:00 [ERR] An exception occurred in the database while saving changes for context type 'Skoruba.IdentityServer4.Admin.EntityFramework.DbContexts.AdminDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Não é possível inserir o valor NULL na coluna 'Id', tabela 'Usuarios.dbo.Clients'; a coluna não permite nulos. Falha em INSERT.
+A instrução foi finalizada.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while updating the entries. See the inner exception for details. ---> System.Data.SqlClient.SqlException: Não é possível inserir o valor NULL na coluna 'Id', tabela 'Usuarios.dbo.Clients'; a coluna não permite nulos. Falha em INSERT.
+A instrução foi finalizada.
+   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__122_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot)
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteAsync(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(DbContext _, ValueTuple`2 parameters, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IReadOnlyList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2018-08-28 11:36:38.117 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:36:53.167 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:37:08.178 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:37:23.197 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:37:38.207 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:37:53.207 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:38:08.221 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:38:18.572 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-08-28 11:38:19.304 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-08-28 11:38:19.443 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-08-28 11:38:19.822 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RxAahiHTGTcOcNUfyJEFLVmM2LlIdJlEyJ0DthfQ3LQN9QdHKWxFIpYbClnCNw8R6eoLmM3dyCn8m4rcKk6bFHuCrAor2aqkTbeNpjlMJTU-MkvZjmc0dHyIQ0vzYLiIyaSGd5v8icR2Y8BoZeNeZZcQeaonhStraJuCqHHFAftZmEeEx1K-fraOBx0lsnX1Ujmu3T42H29R1YTt3eVIheqJaR46K-wlgSWW31v8Hy0w12qNm65GYirbjVBjpISo1m9vINi8Ty8yhEP3UOhdKYemX19cv7zYBiuWDIrkcyig",
+  "Nonce": "636710638993675165.MzYzNTMzZDUtNjJkMC00ZDkwLTgwMWEtZTczMDU4OWM4NDcyOTRiZWFhZmQtYTQxYS00NzgzLTgwZTgtOWJkNTg5NWVkMjYz",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710638993675165.MzYzNTMzZDUtNjJkMC00ZDkwLTgwMWEtZTczMDU4OWM4NDcyOTRiZWFhZmQtYTQxYS00NzgzLTgwZTgtOWJkNTg5NWVkMjYz",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RxAahiHTGTcOcNUfyJEFLVmM2LlIdJlEyJ0DthfQ3LQN9QdHKWxFIpYbClnCNw8R6eoLmM3dyCn8m4rcKk6bFHuCrAor2aqkTbeNpjlMJTU-MkvZjmc0dHyIQ0vzYLiIyaSGd5v8icR2Y8BoZeNeZZcQeaonhStraJuCqHHFAftZmEeEx1K-fraOBx0lsnX1Ujmu3T42H29R1YTt3eVIheqJaR46K-wlgSWW31v8Hy0w12qNm65GYirbjVBjpISo1m9vINi8Ty8yhEP3UOhdKYemX19cv7zYBiuWDIrkcyig",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:38:19.836 -03:00 [INF] Showing login: User is not authenticated
+2018-08-28 11:38:23.232 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:39:39.836 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-08-28 11:39:41.621 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-08-28 11:39:41.834 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-08-28 11:39:42.305 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "anonymous",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:39:42.316 -03:00 [INF] Showing login: User is not authenticated
+2018-08-28 11:39:54.584 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:40:09.595 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:40:23.672 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-08-28 11:40:23.720 -03:00 [INF] {
+  "Name": "User Login Success",
+  "Category": "Authentication",
+  "EventType": "Success",
+  "Id": 1000,
+  "Username": "bruno",
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "DisplayName": "bruno",
+  "Endpoint": "UI",
+  "ActivityId": "0HLGCUGARKT8D:00000003",
+  "TimeStamp": "2018-08-28T14:40:23Z",
+  "ProcessId": 20524,
+  "LocalIpAddress": "::1:5000",
+  "RemoteIpAddress": "::1"
+}
+2018-08-28 11:40:23.770 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-08-28 11:40:23.789 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+  "SessionId": "e5bcd1fd4562121a326cd6837dc72f2b",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:40:23.842 -03:00 [INF] Showing consent: User has not yet consented
+2018-08-28 11:40:24.598 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:40:31.359 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-08-28 11:40:31.400 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+  "SessionId": "e5bcd1fd4562121a326cd6837dc72f2b",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:40:31.417 -03:00 [INF] User consented to scopes: ["openid","profile","email","roles"]
+2018-08-28 11:40:31.759 -03:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "Scopes": "openid profile email roles",
+  "GrantType": "implicit",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****izxQ"
+    }
+  ],
+  "ActivityId": "0HLGCUGARKT8D:00000008",
+  "TimeStamp": "2018-08-28T14:40:31Z",
+  "ProcessId": 20524,
+  "LocalIpAddress": "::1:5000",
+  "RemoteIpAddress": "::1"
+}
+2018-08-28 11:40:31.765 -03:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ClientId": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Scope": "openid profile email roles"
+}
+2018-08-28 11:40:31.786 -03:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2018-08-28 11:40:39.620 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:40:54.629 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:41:09.632 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:41:09.957 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeCallbackEndpoint for /connect/authorize/callback
+2018-08-28 11:41:09.968 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+  "SessionId": "e5bcd1fd4562121a326cd6837dc72f2b",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710639817045692.ZDY1NjQwZTQtYWQ1MC00OWRlLThjODctOTZiOWViMDVjYjNmODk4ODFmNTYtZWJjMi00N2EzLWJlOWItOTAzNzEwMWRjNmQw",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:41:10.014 -03:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "Scopes": "openid profile email roles",
+  "GrantType": "implicit",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****D-tA"
+    }
+  ],
+  "ActivityId": "0HLGCUGARKT8D:0000000B",
+  "TimeStamp": "2018-08-28T14:41:10Z",
+  "ProcessId": 20524,
+  "LocalIpAddress": "::1:5000",
+  "RemoteIpAddress": "::1"
+}
+2018-08-28 11:41:10.018 -03:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ClientId": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0RhHvsN8jCs8MhZo1e3LxMTLnDfJ8u5oQ0U0rw6PqTWEAxNdmLgJlZ0kgeuB9igrCJX-RIU0LhsCk_hP3S6x2IRPdIigDj5mCJ2cNL1uLR4ICDuv_EVHrKXoNndi7hlid6Wk75yVwMBZo8-Vl5lWG7lw6eDEFPGy0E_mte4OnmUvILAWLRxi5t9GE61HOsUVFdVvHpVoZVZOzJjzwZ-0EQ_lmytCvGHz9yH1VKBZl4vnUVON8KjEH3WUZlgqw2jjt4iSnuQjjgmd8tiKMCV5FvMCT_mJ93m7KwqH651cqAvcA",
+  "Scope": "openid profile email roles"
+}
+2018-08-28 11:41:24.644 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:42:09.408 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryEndpoint for /.well-known/openid-configuration
+2018-08-28 11:42:10.785 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.DiscoveryKeyEndpoint for /.well-known/openid-configuration/jwks
+2018-08-28 11:42:10.978 -03:00 [INF] Invoking IdentityServer endpoint: IdentityServer4.Endpoints.AuthorizeEndpoint for /connect/authorize
+2018-08-28 11:42:11.397 -03:00 [INF] ValidatedAuthorizeRequest
+{
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "AllowedRedirectUris": [
+    "http://localhost:9000/signin-oidc"
+  ],
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ResponseType": "id_token",
+  "ResponseMode": "form_post",
+  "GrantType": "implicit",
+  "RequestedScopes": "openid profile email roles",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0TUpzeYzsY7pWuCKWGm3bG9mVLj-LwYRx10twvsFCsQryYhGfw8bsbuOXXPPyAqdcTEphxd-stLBDSIT7ZQa-JuioaJL646PpqBExRMIgYpBKcsh4zKFM7xY3gEi8IpJDaki58QOtax8xUD5217dMqmOsFbZGLuju_r6fiVIDS9WpdFaQi8k-2c3ak4giopbQslHCTVQM3VPdcYJEqj0H0xRNMw_Xzma-3LbZM_EDAc2iB6xGejbqThME3QRihYkGMZdTtURaIkFkM-bjx6Y4EWUIsK8rxyqkOwlQlLVPMUUg",
+  "Nonce": "636710641308596271.MmI0MzRkZWYtNjI1MS00OTQ3LTljMDMtNDVmMjEzNGQxODYwMDc1MWMyMDctYmYyMC00ZWU4LTlmNTYtMGFiYjEzNThjMTkx",
+  "SessionId": "e5bcd1fd4562121a326cd6837dc72f2b",
+  "Raw": {
+    "client_id": "skoruba_identity_admin",
+    "redirect_uri": "http://localhost:9000/signin-oidc",
+    "response_type": "id_token",
+    "scope": "openid profile email roles",
+    "response_mode": "form_post",
+    "nonce": "636710641308596271.MmI0MzRkZWYtNjI1MS00OTQ3LTljMDMtNDVmMjEzNGQxODYwMDc1MWMyMDctYmYyMC00ZWU4LTlmNTYtMGFiYjEzNThjMTkx",
+    "state": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0TUpzeYzsY7pWuCKWGm3bG9mVLj-LwYRx10twvsFCsQryYhGfw8bsbuOXXPPyAqdcTEphxd-stLBDSIT7ZQa-JuioaJL646PpqBExRMIgYpBKcsh4zKFM7xY3gEi8IpJDaki58QOtax8xUD5217dMqmOsFbZGLuju_r6fiVIDS9WpdFaQi8k-2c3ak4giopbQslHCTVQM3VPdcYJEqj0H0xRNMw_Xzma-3LbZM_EDAc2iB6xGejbqThME3QRihYkGMZdTtURaIkFkM-bjx6Y4EWUIsK8rxyqkOwlQlLVPMUUg",
+    "x-client-SKU": "ID_NETSTANDARD1_4",
+    "x-client-ver": "5.2.0.0"
+  }
+}
+2018-08-28 11:42:11.914 -03:00 [INF] {
+  "Name": "Token Issued Success",
+  "Category": "Token",
+  "EventType": "Success",
+  "Id": 2000,
+  "ClientId": "skoruba_identity_admin",
+  "ClientName": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "Endpoint": "Authorize",
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "Scopes": "openid profile email roles",
+  "GrantType": "implicit",
+  "Tokens": [
+    {
+      "TokenType": "id_token",
+      "TokenValue": "****lB5A"
+    }
+  ],
+  "ActivityId": "0HLGCUHNBKK8G:00000001",
+  "TimeStamp": "2018-08-28T14:42:11Z",
+  "ProcessId": 2832,
+  "LocalIpAddress": "::1:5000",
+  "RemoteIpAddress": "::1"
+}
+2018-08-28 11:42:11.921 -03:00 [INF] Authorize endpoint response
+{
+  "SubjectId": "540661f8-2292-4794-c3b0-08d60cf39fa1",
+  "ClientId": "skoruba_identity_admin",
+  "RedirectUri": "http://localhost:9000/signin-oidc",
+  "State": "CfDJ8Dwe9e1k4vtCiXenAGJ8h0TUpzeYzsY7pWuCKWGm3bG9mVLj-LwYRx10twvsFCsQryYhGfw8bsbuOXXPPyAqdcTEphxd-stLBDSIT7ZQa-JuioaJL646PpqBExRMIgYpBKcsh4zKFM7xY3gEi8IpJDaki58QOtax8xUD5217dMqmOsFbZGLuju_r6fiVIDS9WpdFaQi8k-2c3ak4giopbQslHCTVQM3VPdcYJEqj0H0xRNMw_Xzma-3LbZM_EDAc2iB6xGejbqThME3QRihYkGMZdTtURaIkFkM-bjx6Y4EWUIsK8rxyqkOwlQlLVPMUUg",
+  "Scope": "openid profile email roles"
+}
+2018-08-28 11:42:23.576 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:42:38.599 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:42:53.616 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:43:08.627 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:43:23.644 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:43:38.659 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:43:53.677 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:44:08.693 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:44:23.708 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:44:38.726 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:44:53.739 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:45:08.753 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:45:23.767 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:45:38.769 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:45:53.783 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:46:08.787 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:46:23.801 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:46:38.819 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:46:53.820 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:47:08.837 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:47:23.849 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:47:38.865 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:47:53.879 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:48:08.893 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:48:23.914 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:48:38.928 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:48:53.944 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:49:08.958 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:49:23.977 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:49:38.993 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:49:54.003 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:50:09.021 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:50:24.025 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:50:39.039 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:50:54.055 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:51:09.072 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:51:24.074 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:51:39.090 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:51:54.103 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:52:09.114 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:52:24.129 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:52:39.149 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:52:54.161 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:53:09.178 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:53:24.190 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:53:39.208 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:53:54.223 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:54:09.239 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:54:24.255 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:54:39.268 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:54:54.286 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:55:09.289 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:55:24.300 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:55:39.319 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:55:54.337 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:56:09.349 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:56:24.364 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:56:39.378 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:56:54.398 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:57:09.421 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:57:24.438 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:57:39.441 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:57:54.459 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:58:09.478 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:58:24.490 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:58:39.505 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:58:54.520 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:59:09.542 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:59:24.553 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:59:39.567 -03:00 [INF] Clearing 0 tokens
+2018-08-28 11:59:54.584 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:00:09.601 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:00:24.615 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:00:39.630 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:00:54.647 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:01:09.662 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:01:24.679 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:01:39.693 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:01:54.707 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:02:09.708 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:02:24.724 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:02:39.742 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:02:54.756 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:03:09.770 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:03:24.787 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:03:39.803 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:03:54.816 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:04:09.833 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:04:24.851 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:04:39.866 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:04:54.881 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:05:09.897 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:05:24.901 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:05:39.913 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:05:54.921 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:06:09.925 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:06:24.941 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:06:39.959 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:06:54.976 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:07:09.995 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:07:25.007 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:07:40.025 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:07:55.029 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:08:10.042 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:08:25.055 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:08:40.067 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:08:55.085 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:09:10.104 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:09:25.116 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:09:40.131 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:09:55.146 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:10:10.162 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:10:25.177 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:10:40.193 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:10:55.208 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:11:10.223 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:11:25.225 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:11:40.238 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:11:55.241 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:12:10.255 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:12:25.272 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:12:40.287 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:12:55.303 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:13:10.321 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:13:25.334 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:13:40.351 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:13:55.364 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:14:10.380 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:14:25.396 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:14:40.413 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:14:55.427 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:15:10.429 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:15:25.446 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:15:40.463 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:15:55.474 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:16:10.490 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:16:25.506 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:16:40.523 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:16:55.538 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:17:10.552 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:17:25.569 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:17:40.583 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:17:55.601 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:18:10.614 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:18:25.630 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:18:40.645 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:18:55.663 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:19:10.679 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:19:25.692 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:19:40.696 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:19:55.713 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:20:10.733 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:20:25.741 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:20:40.755 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:20:55.771 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:21:10.774 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:21:25.785 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:21:40.802 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:21:55.819 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:22:10.820 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:22:25.835 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:22:40.849 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:22:55.865 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:23:10.866 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:23:25.884 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:23:40.898 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:23:55.912 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:24:10.929 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:24:25.944 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:24:40.946 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:24:55.959 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:25:10.975 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:25:25.992 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:25:41.009 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:25:56.023 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:26:11.040 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:26:26.052 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:26:41.073 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:26:56.087 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:27:11.099 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:27:26.118 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:27:41.132 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:27:56.149 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:28:11.164 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:28:26.178 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:28:41.193 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:28:56.195 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:29:11.211 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:29:26.227 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:29:41.243 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:29:56.258 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:30:11.274 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:30:26.289 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:30:41.305 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:30:56.321 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:31:11.342 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:31:26.359 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:31:41.367 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:31:56.369 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:32:11.387 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:32:26.403 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:32:41.417 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:32:56.433 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:33:11.450 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:33:26.466 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:33:41.480 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:33:56.483 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:34:11.500 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:34:26.520 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:34:41.537 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:34:56.547 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:35:11.565 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:35:26.580 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:35:41.595 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:35:56.606 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:36:11.621 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:36:26.633 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:36:41.646 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:36:56.664 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:37:11.678 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:37:26.693 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:37:41.711 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:37:56.727 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:38:11.745 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:38:26.758 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:38:41.776 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:38:56.787 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:39:11.791 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:39:26.806 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:39:41.822 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:39:56.837 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:40:11.838 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:40:26.853 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:40:41.871 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:40:56.892 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:41:11.906 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:41:26.922 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:41:41.937 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:41:56.952 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:42:11.974 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:42:26.981 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:42:41.999 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:42:57.013 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:43:12.016 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:43:27.029 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:43:42.044 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:43:57.046 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:44:12.062 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:44:27.078 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:44:42.082 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:44:57.099 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:45:12.114 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:45:27.132 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:45:42.142 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:45:57.144 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:46:12.158 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:46:27.163 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:46:42.174 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:46:57.190 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:47:12.207 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:47:27.223 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:47:42.241 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:47:57.254 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:48:12.272 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:48:27.286 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:48:42.301 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:48:57.303 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:49:12.318 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:49:27.322 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:49:42.340 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:49:57.357 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:50:12.371 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:50:27.386 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:50:42.397 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:50:57.403 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:51:12.414 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:51:27.432 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:51:42.446 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:51:57.449 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:52:12.464 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:52:27.476 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:52:42.478 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:52:57.480 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:53:12.496 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:53:27.511 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:53:42.526 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:53:57.544 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:54:12.550 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:54:27.557 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:54:42.560 -03:00 [INF] Clearing 0 tokens
+2018-08-28 12:55:19.311 -03:00 [INF] Clearing 0 tokens

@@ -11,13 +11,15 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         {            
             var fakerApiResource = new Faker<ApiResource>()
                 .RuleFor(o => o.Name, f => Guid.NewGuid().ToString())
-                .RuleFor(o => o.Id, id)
                 .RuleFor(o => o.Description, f => f.Random.Words(f.Random.Number(1, 5)))
                 .RuleFor(o => o.DisplayName, f => f.Random.Words(f.Random.Number(1, 5)))
                 .RuleFor(o => o.Enabled, f => f.Random.Bool())
                 .RuleFor(o => o.Scopes, new List<ApiScope>()) //Api Scopes are managed with seperate method
                 .RuleFor(o => o.Secrets, new List<ApiSecret>()) //Api Secret are managed with seperate method
-                .RuleFor(o => o.UserClaims, f => GetApiResourceClaimFaker(0).Generate(f.Random.Number(10)));
+                .RuleFor(o => o.UserClaims, f => GetApiResourceClaimFaker().Generate(f.Random.Number(10)));
+
+            if (id != 0)
+                fakerApiResource.RuleFor(o => o.Id, id);
 
             return fakerApiResource;
         }
@@ -27,27 +29,29 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
             var fakerApiSecret = new Faker<ApiSecret>()
                 .RuleFor(o => o.Type, f => Guid.NewGuid().ToString())
                 .RuleFor(o => o.Value, f => Guid.NewGuid().ToString())
-                .RuleFor(o => o.Id, id)
                 .RuleFor(o => o.Description, f => f.Random.Words(f.Random.Number(1, 5)))
-                .RuleFor(o => o.Expiration, f => f.Date.Future());                
+                .RuleFor(o => o.Expiration, f => f.Date.Future());
+
+            if (id != 0)
+                fakerApiSecret.RuleFor(o => o.Id, id);
 
             return fakerApiSecret;
         }
 
-        public static Faker<ApiResourceClaim> GetApiResourceClaimFaker(int id)
+        public static Faker<ApiResourceClaim> GetApiResourceClaimFaker()
         {
             var fakerApiResourceClaim = new Faker<ApiResourceClaim>()
                 .RuleFor(o => o.Type, f => Guid.NewGuid().ToString())
-                .RuleFor(o => o.Id, id);
+                .RuleFor(o => o.Id, f => f.Random.Number(10000));
 
             return fakerApiResourceClaim;
         }
 
-        public static Faker<ApiScopeClaim> GetApiScopeClaim(int id)
+        public static Faker<ApiScopeClaim> GetApiScopeClaim()
         {
             var fakerApiScopeClaim = new Faker<ApiScopeClaim>()
                 .RuleFor(o => o.Type, f => Guid.NewGuid().ToString())                
-                .RuleFor(o => o.Id, id);
+                .RuleFor(o => o.Id, f => f.Random.Number(f.Random.Number(1000)));
 
             return fakerApiScopeClaim;
         }
@@ -56,32 +60,34 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
         {
             var fakerApiScope = new Faker<ApiScope>()
                 .RuleFor(o => o.Name, f => Guid.NewGuid().ToString())
-                .RuleFor(o => o.Id, id)
                 .RuleFor(o => o.Description, f => f.Random.Words(f.Random.Number(1, 5)))
                 .RuleFor(o => o.DisplayName, f => f.Random.Words(f.Random.Number(1, 5)))
-                .RuleFor(o => o.UserClaims, f => GetApiScopeClaim(0).Generate(f.Random.Number(10)))
+                .RuleFor(o => o.UserClaims, f => GetApiScopeClaim().Generate(f.Random.Number(10)))
                 .RuleFor(o => o.Emphasize, f => f.Random.Bool())
                 .RuleFor(o => o.Required, f => f.Random.Bool())
-                .RuleFor(o => o.ShowInDiscoveryDocument, f => f.Random.Bool());                
+                .RuleFor(o => o.ShowInDiscoveryDocument, f => f.Random.Bool());
+
+            if (id != 0)
+                fakerApiScope.RuleFor(o => o.Id, id);
 
             return fakerApiScope;
         }
 
-        public static ApiResource GenerateRandomApiResource(int id)
+        public static ApiResource GenerateRandomApiResource(int id = 0)
         {
             var apiResource = GetApiResourceFaker(id).Generate();
 
             return apiResource;
         }
 
-        public static ApiScope GenerateRandomApiScope(int id)
+        public static ApiScope GenerateRandomApiScope(int id = 0)
         {
             var apiScope = GetApiScopeFaker(id).Generate();
 
             return apiScope;
         }
 
-        public static ApiSecret GenerateRandomApiSecret(int id)
+        public static ApiSecret GenerateRandomApiSecret(int id = 0)
         {
             var apiSecret = GetApiSecretFaker(id).Generate();
 

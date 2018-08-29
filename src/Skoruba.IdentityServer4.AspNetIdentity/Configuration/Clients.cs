@@ -20,7 +20,7 @@ namespace Skoruba.IdentityServer4.Admin.Configuration
 	            //////////////////////////////////////////
 	            new Client
                 {
-
+                    
                     ClientId = AuthorizationConsts.OidcClientId,
                     ClientName = AuthorizationConsts.OidcClientId,
                     ClientUri = AuthorizationConsts.IdentityAdminBaseUrl,
@@ -41,9 +41,7 @@ namespace Skoruba.IdentityServer4.Admin.Configuration
                         "roles"
                     }
                 },
-
             };
-
         }
 
 

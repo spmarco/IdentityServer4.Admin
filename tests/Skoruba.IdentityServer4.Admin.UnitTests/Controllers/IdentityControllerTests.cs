@@ -39,7 +39,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Controllers
 
             // Get controller
             var controller = PrepareIdentityController(serviceProvider);
-            var userDto = IdentityDtoMock.GenerateRandomUser(Guid.NewGuid());
+            var userDto = IdentityDtoMock.GenerateRandomUser(new Guid());
             var result = await controller.UserProfile(userDto);
 
             // Assert            
@@ -153,7 +153,7 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Controllers
 
             // Get controller
             var controller = PrepareIdentityController(serviceProvider);
-            var roleDto = IdentityDtoMock.GenerateRandomRole(Guid.NewGuid());
+            var roleDto = IdentityDtoMock.GenerateRandomRole(new Guid());
             var result = await controller.Role(roleDto);
 
             // Assert            

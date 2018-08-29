@@ -36,12 +36,12 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
             return clientPropertyTesting;
         }
 
-        public static ClientCloneDto GenerateClientCloneDto(int id, bool cloneClientClaims = true,
+        public static ClientCloneDto GenerateClientCloneDto(ClientDto clientDto, bool cloneClientClaims = true,
             bool cloneClientCorsOrigins = true, bool cloneClientGrantTypes = true, bool cloneClientIdPRestrictions = true,
             bool cloneClientPostLogoutRedirectUris = true, bool cloneClientProperties = true,
             bool cloneClientRedirectUris = true, bool cloneClientScopes = true)
         {
-            var clientCloneFaker = ClientCloneFaker(id, cloneClientClaims, cloneClientCorsOrigins,
+            var clientCloneFaker = ClientCloneFaker(clientDto, cloneClientClaims, cloneClientCorsOrigins,
                 cloneClientGrantTypes, cloneClientIdPRestrictions, cloneClientPostLogoutRedirectUris,
                 cloneClientProperties, cloneClientRedirectUris, cloneClientScopes);
 
@@ -147,14 +147,53 @@ namespace Skoruba.IdentityServer4.Admin.UnitTests.Mocks
             return clientPropertyFaker;
         }
 
-        public static Faker<ClientCloneDto> ClientCloneFaker(int id, bool cloneClientClaims,
+        public static Faker<ClientCloneDto> ClientCloneFaker(ClientDto clientDto, bool cloneClientClaims,
         bool cloneClientCorsOrigins, bool cloneClientGrantTypes, bool cloneClientIdPRestrictions,
         bool cloneClientPostLogoutRedirectUris, bool cloneClientProperties,
         bool cloneClientRedirectUris, bool cloneClientScopes)
         {
             var clientCloneDto = new Faker<ClientCloneDto>()
                 .StrictMode(false)
-                .RuleFor(o => o.Id, id)
+                .RuleFor(o => o.Id, clientDto.Id)
+                .RuleFor(o => o.ClientId, $"{clientDto.ClientId}(Clone))")
+                .RuleFor(o => o.ClientName, clientDto.ClientName)
+                .RuleFor(o => o.Description, clientDto.Description)
+                .RuleFor(o => o.ClientUri, clientDto.ClientUri)
+                .RuleFor(o => o.LogoUri, clientDto.LogoUri)
+                .RuleFor(o => o.AlwaysIncludeUserClaimsInIdToken, clientDto.AlwaysIncludeUserClaimsInIdToken)
+                .RuleFor(o => o.AllowedGrantTypes, clientDto.AllowedGrantTypes)
+                .RuleFor(o => o.AllowPlainTextPkce, clientDto.AllowPlainTextPkce)
+                .RuleFor(o => o.AllowAccessTokensViaBrowser, clientDto.AllowAccessTokensViaBrowser)
+                .RuleFor(o => o.RedirectUris, clientDto.RedirectUris)
+                .RuleFor(o => o.PostLogoutRedirectUris, clientDto.PostLogoutRedirectUris)
+                .RuleFor(o => o.FrontChannelLogoutUri, clientDto.FrontChannelLogoutUri)
+                .RuleFor(o => o.FrontChannelLogoutSessionRequired, clientDto.FrontChannelLogoutSessionRequired)
+                .RuleFor(o => o.BackChannelLogoutUri, clientDto.BackChannelLogoutUri)
+                .RuleFor(o => o.AllowOfflineAccess, clientDto.AllowOfflineAccess)
+                .RuleFor(o => o.AllowedScopes, clientDto.AllowedScopes)
+                .RuleFor(o => o.IdentityTokenLifetime, clientDto.IdentityTokenLifetime)
+                .RuleFor(o => o.AccessTokenLifetime, clientDto.AccessTokenLifetime)
+                .RuleFor(o => o.AuthorizationCodeLifetime, clientDto.AuthorizationCodeLifetime)
+                .RuleFor(o => o.ConsentLifetime, clientDto.ConsentLifetime)
+                .RuleFor(o => o.AbsoluteRefreshTokenLifetime, clientDto.AbsoluteRefreshTokenLifetime)
+                .RuleFor(o => o.SlidingRefreshTokenLifetime, clientDto.SlidingRefreshTokenLifetime)
+                .RuleFor(o => o.UpdateAccessTokenClaimsOnRefresh, clientDto.UpdateAccessTokenClaimsOnRefresh)
+                .RuleFor(o => o.RefreshTokenExpiration, clientDto.RefreshTokenExpiration)
+                .RuleFor(o => o.IdentityProviderRestrictions, clientDto.IdentityProviderRestrictions)
+                .RuleFor(o => o.RefreshTokenUsage, clientDto.RefreshTokenUsage)
+                .RuleFor(o => o.AccessTokenType, clientDto.AccessTokenType)
+                .RuleFor(o => o.EnableLocalLogin, clientDto.EnableLocalLogin)
+                .RuleFor(o => o.IncludeJwtId, clientDto.IncludeJwtId)
+                .RuleFor(o => o.AlwaysSendClientClaims, clientDto.AlwaysSendClientClaims)
+                .RuleFor(o => o.ClientClaimsPrefix, clientDto.ClientClaimsPrefix)
+                .RuleFor(o => o.PairWiseSubjectSalt, clientDto.PairWiseSubjectSalt)
+                .RuleFor(o => o.AllowedCorsOrigins, clientDto.AllowedCorsOrigins)
+                .RuleFor(o => o.Enabled, clientDto.Enabled)
+                .RuleFor(o => o.RequirePkce, clientDto.RequirePkce)
+                .RuleFor(o => o.RequireConsent, clientDto.RequireConsent)
+                .RuleFor(o => o.BackChannelLogoutSessionRequired, clientDto.BackChannelLogoutSessionRequired)
+                .RuleFor(o => o.RequireClientSecret, clientDto.RequireClientSecret)
+                .RuleFor(o => o.AllowRememberConsent, clientDto.AllowRememberConsent)
                 .RuleFor(o => o.CloneClientClaims, cloneClientClaims)
                 .RuleFor(o => o.CloneClientCorsOrigins, cloneClientCorsOrigins)
                 .RuleFor(o => o.CloneClientGrantTypes, cloneClientGrantTypes)

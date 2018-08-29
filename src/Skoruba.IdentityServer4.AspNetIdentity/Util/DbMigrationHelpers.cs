@@ -88,7 +88,9 @@ namespace Skoruba.IdentityServer4.AspNetIdentity.Util
             {
                 foreach (var client in Clients.GetAdminClient().ToList())
                 {
-                    await context.Clients.AddAsync(client.ToEntity());
+                    var clientDb = client.ToEntity();
+
+                    await context.Clients.AddAsync(clientDb);
                 }
 
                 await context.SaveChangesAsync();
